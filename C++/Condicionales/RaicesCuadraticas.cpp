@@ -10,17 +10,18 @@ int main(){
   int b, c, disC, x1, x2, uniKo;
 
   cin >> a;
-
+  //Validación A
   if (a == 0){
     cout << "No tiene solucion" << endl;
     return 0;
   }
+  //Continua Proceso
   else if (a > 0){
     cin >> b;
     cin >> c;
-
+    //Obtencion del determinante
     disC = ((b*b) - (4*a*c));
-
+    //Condicionales para el determinante
     if (disC < 0){
       cout << "Raices complejas" << endl;
     }
@@ -35,7 +36,7 @@ int main(){
       cout << uniKo << endl;
     }
 
-
+    //End
   }
   return 0;
 }

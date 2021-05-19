@@ -17,7 +17,7 @@ int main() {
     complejo1.setImag(imag1); complejo2.setImag(imag2);
     // realiza la suma de los objetos complejo1 y complejo2 y deja el resultado en el objeto complejo3
     Complejo complejo3;
-    complejo3 = complejo1.sumaobjets(complejo2);
+    complejo3 = complejo1.suma(complejo2);
     // llama al método muestra con el objeto complejo3
     complejo3.muestra();
     cout << endl;

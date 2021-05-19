@@ -57,7 +57,7 @@ void Complejo:: setImag(int i) {
 }
 
 void Complejo:: muestra() {
-    cout << "( " << real << ", " << imag << "i )"<< endl;
+    cout << real << " + " << imag << "i"<< endl;
 }
 
 Complejo Complejo::suma(Complejo c2){

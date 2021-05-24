@@ -8,7 +8,7 @@ class Series
 {
 
 public:
-    //Constructor que inicializa iCant = 0
+    //Constructor que inicializa iCant = 0  
     Series();
     //Lee las Series desde un archivo CVS y las carga en el arreglo y lee el archivo de Episodios
     void leerArchivo();

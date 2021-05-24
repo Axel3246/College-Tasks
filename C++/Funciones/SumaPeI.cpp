@@ -1,7 +1,7 @@
 /* Entrada: N Valores, Valores del Arr[]
    Salida: Suma de casillas pares, suma de casillas impares
 */
-
+/*
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -30,4 +30,4 @@ void suma_posiciones(int arr[], int size){ //Paso de Parametros por referencia e
     }
     cout << acumPar << " " << acumPar << endl;
 
-}
+}*/

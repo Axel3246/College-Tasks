@@ -13,7 +13,7 @@ class Serie{
     double _calificacionPromedio, int _num, int _episodio);
     //SET
     void setId(string _iD);
-    void setTitulo(string _titulo);
+    void setTitulo(string _titulo); 
     void setDuracion(int _duracion);
     void setGenero(string _genero); 
     void setCalificacion(double _calificacionPromedio);

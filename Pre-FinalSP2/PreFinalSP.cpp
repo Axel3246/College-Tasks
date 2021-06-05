@@ -82,13 +82,13 @@ void mostrarEpisodiosDeSeries(Videos *listaVideos[], Serie *arrSeries[], int can
     cout << "'¿Qué calificación quieres que despleguemos? Calificación: ";
     cin >> califEpisodio;
 
-    for (int i = 0; i < cantVideos_; i++)
+    for (int i = 0; i < cantSeries; i++)
     {
         if (arrSeries[i]->getNombreSerie() == conserie)
         {
             arrSeries[i]->imprimir(califEpisodio);
         }
-    }
+    } //COMO REGRESAR AL MAIN SI NO HAY EPISODIOS
 }
 
 void peliculasConCalif(Videos *listaVideos[], int cantVideos)

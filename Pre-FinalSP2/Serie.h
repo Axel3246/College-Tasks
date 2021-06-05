@@ -69,6 +69,9 @@ void Serie::imprimir(int calificacion)
         if(arrepisodio[i]->getCalificacion()==calificacion){
             arrepisodio[i]->muestraInformacion();
         }
+        else{
+            cout << "No hay episodios con esa calificacion" << endl;
+        }
     }
         
 

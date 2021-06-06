@@ -17,7 +17,7 @@ void mostrarLosVideos(Videos *listaVideos[], int cantVideos_)
     {
         listaVideos[i]->muestraInformacion();
         cout << endl;
-        sleep(1);
+        //sleep(1);
     }
 }
 
@@ -40,7 +40,8 @@ void mostrarVideosConCalif(Videos *listaVideos[], int cantVideos_)
     {
         if (listaVideos[i]->getCalificacion() == calificacionB)
         {
-            cout << "- " << listaVideos[i]->getNombre() << endl;
+            //cout << "- " << listaVideos[i]->muestraInformacion() << endl;
+            listaVideos[i]->muestraInformacion();
             cout << endl;
             sleep(1);
         }
@@ -136,6 +137,7 @@ void seriesYepisodios(Serie *arrSeries[], int cantSeries)
     {
         cout << endl;
         arrSeries[s]->mostrar();
+        sleep(1);
         cout << endl;
     }
 }
@@ -145,8 +147,8 @@ int main()
     char t;
 
     //Arreglos de Apuntadores
-    Videos *listaVideos[60];
-    Serie *arrSeries[60];
+    Videos *listaVideos[100];
+    Serie *arrSeries[100];
     //Para Videos
     int cantVideos_;
     //Para Peliculas

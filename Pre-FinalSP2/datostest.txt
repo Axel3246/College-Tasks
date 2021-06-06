@@ -9,6 +9,11 @@ p 117 Avengers_Endgame Ciencia_ficcion 181 5
 p 118 Intensa_Mente Animacion 94 4
 p 119 Capitan_America_Civil_War Ciencia_ficcion 147 4
 p 120 Guardianes_de_la_galaxia Ciencia_ficcion 118 3
+p 121 Ralph_el_Demoledor Animacion 97 4
+p 122 Demon_Slayer_Mugen_Train Animacion 128 4
+p 123 No_manches_Frida Comedia 108 3
+p 124 No_se_aceptan_devoluciones Drama 122 4
+p 125 Y_donde_Estan_las_rubias Comedia 115 5
 e 210 The_Vanishing_of_Will_Byers Ciencia_ficcion 42 5 Stranger_things 1 5
 e 211 The_Weirdo_on_Maple Ciencia_ficcion 42 5 Stranger_things 1 5
 e 212 Holly_Jolly Ciencia_ficcion 42 4 Stranger_things 1 4
@@ -28,4 +33,46 @@ e 226 The_One_with_the_Baby_on_the_Bus Comedia 41 4 How_I_met_your_mother 2 3
 e 227 Return_of_the_Shirt Comedia 40 5 How_I_met_your_mother 2 3
 e 228 Okay_Awesome Comedia 39 4 How_I_met_your_mother 2 3
 e 229 Prelude_One Comedia 39 4 Friends 2 3
-
+e 230 Anatomy_Park Comedia 30 4 Rick_y_Morty 1 5
+e 231 Ricksy_Business Comedia 29 5 Rick_y_Morty 1 5
+e 232 Mortynight_Run Comedia 28 4 Rick_y_Morty 2 4
+e 233 Get_Schwiffty Comedia 29 4 Rick_y_Morty 2 4
+e 234 Pickle_Rick Comedia 32 5 Rick_y_Morty 3 5
+e 235 Promortyus Comedia 27 3 Rick_y_Morty 4 3
+e 236 Vertigo Accion 42 4 Arrow 1 4
+e 237 The_Odyssey Accion 44 3 Arrow 1 3
+e 238 Sacrifice Accion 49 4 Arrow 1 4
+e 239 Crucible Accion 51 5 Arrow 2 5
+e 240 The_Man_Under_The_Hood Accion 51 5 Arrow 2 5
+e 241 Al_Sal_Him Accion 46 2 Arrow 3 2
+e 242 My_name_is_Oliver_Queen Accion 5 5 Arrow 3 5
+e 243 Cancer_Man Drama 50 5 Breaking_Bad 1 5
+e 244 Gray_Matter Drama 50 5 Breaking_Bad 1 5
+e 245 Grilled Drama 51 5 Breaking_Bad 2 5
+e 246 Phoenix Drama 51 5 Breaking_Bad 2 5
+e 247 No_Mas Drama 52 4 Breaking_Bad 3 4
+e 248 Mas Drama 54 4 Breaking_Bad 3 4
+e 249 Say_my_Name Drama 55 5 Breaking_Bad 5 5
+e 250 Ozymandias Drama 49 5 Breaking_Bad 5 5
+e 251 Little_Dipper Animacion 22 3 Gravity_Falls 1 3
+e 252 Boss_Mabel Animacion 21 4 Gravity_Falls 1 4
+e 553 Boyz_Crazy Animacion 20 4 Gravity_Falls 1 4
+e 554 Gideon_Rises Animacion 25 5 Gravity_Falls 1 5
+e 555 A_Tale_of_Two_Stans Animacion 28 3 Gravity_Falls 2 3
+e 556 Weirdmageddon_Part_1 Animacion 30 5 Gravity_Falls 2 5
+e 557 Weirdmageddon_Part_2 Animacion 30 5 Gravity_Falls 2 5
+e 558 Weirdmageddon_Part_3 Animacion 30 5 Gravity_Falls 2 5
+e 559 El_Precio_de_esta_Espada_Maldita Animacion 29 4 Konosuba 1 4
+e 560 El_final_de_esta_pelea_sin_sentido Animacion 28 4 Konosuba 1 4
+e 561 Bendita_sea_esta_tierra_maravillosa Animacion 27 5 Konosuba 1 5
+e 562 Paz_para_el_amo_de_este_laberinto Animacion 26 4 Konosuba 2 4
+e 563 Turismo_en_esta_ciudad_lamentable Animacion 29 5 Konosuba 2 5
+e 564 Bendito_sea_este_equipo_maravilloso Animacion 26 4 Konosuba 2 4
+e 565 El_ataque_del_angel Accion 30 3 Neon_Genesis_Evangelion 1 3
+e 566 Rei_al_otro_lado_de_su_corazon Accion 30 5 Neon_Genesis_Evangelion 1 5
+e 567 Nuestro_auto Comedia 26 4 Drake_y_Josh 1 4
+e 568 El_asador_de_Gary_Coleman Comedia 29 5 Drake_y_Josh 1 5
+e 572 Los_recuerdos_de_Nero Animacion 26 4 Black_Clover 1 4
+e 573 Pistas Animacion 26 3 Black_Clover 1 3
+e 574 El_poder_de_Zenon Animacion 27 5 Black_Clover 1 5
+e 575 El_capitan_Yami_Sukehiro Animacion 29 5 Black_Clover 1 5

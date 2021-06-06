@@ -26,7 +26,7 @@ public:
     void mostrar();
 
 private:
-    Episodio *arrepisodio[25];
+    Episodio *arrepisodio[100];
     string iDD;
     int cantEpisodios;
     string nombreSerie;
@@ -52,7 +52,7 @@ bool Serie::agregaEpisodio(Episodio *episodio)
     {
         arrepisodio[cantEpisodios] = episodio;
         cantEpisodios += 1;
-        cout << "Se agregó epi" << endl;
+        //cout << "Se agregó epi" << endl;
         return true;
     }
     else
@@ -70,7 +70,7 @@ void Serie::imprimir(int calificacion)
             arrepisodio[i]->muestraInformacion();
         }
         else{
-            cout << "No hay episodios con esa calificacion" << endl;
+            //cout << "No hay episodios con esa calificacion" << endl;
         }
     }
         

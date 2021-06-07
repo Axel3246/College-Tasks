@@ -25,7 +25,7 @@ void mostrarVideosConCalif(Videos *listaVideos[], int cantVideos_)
 {
 
     int calificacionB;
-    cout << "¿Qué calificación (1-5) quieres que busquemos?" << endl;
+    cout << "¿Que calificacion (1-5) quieres que busquemos?" << endl;
     cout << "Calificacion: ";
     cin >> calificacionB;
     while ((calificacionB <= 0) || (calificacionB > 5))
@@ -51,22 +51,23 @@ void mostrarVideosConCalif(Videos *listaVideos[], int cantVideos_)
 void mostrarVideosConGenero(Videos *listaVideos[], int cantVideos_)
 {
     string opgenero = "";
-    cout << "¿Qué genero deseas consultar?" << endl;
+    cout << "¿Que genero deseas consultar?" << endl;
+    cout << endl;
     cout << "1. Ciencia_ficcion " << endl;
     cout << "2. Accion" << endl;
     cout << "3. Drama " << endl;
     cout << "4. Animacion" << endl;
     cout << "5. Comedia" << endl;
-    cout << "Genero: ";
+    cout << "Escribe el genero: ";
     cin >> opgenero;
     cout << endl;
-    cout << "A continuación veras los videos con el genero: " << opgenero << endl;
+    cout << "A continuacion veras los videos con el genero: " << opgenero << endl;
     cout << endl;
     for (int j = 0; j < cantVideos_; j++)
     {
         if (listaVideos[j]->getGenero() == opgenero)
         {
-            cout << "- " << listaVideos[j]->getNombre() << endl;
+            listaVideos[j]->muestraInformacion();
             cout << endl;
             sleep(1);
         }
@@ -78,10 +79,31 @@ void mostrarEpisodiosDeSeries(Videos *listaVideos[], Serie *arrSeries[], int can
     string conserie = "";
     Episodio *episode;
     int califEpisodio = 0;
-    cout << "¿Qué serie quieres consultar? Serie: " << endl;
+    cout << "¿Que serie quieres consultar?" << endl;
+    cout << endl;
+    cout << "1. Stranger_things " << endl;
+    cout << "2. How_I_met_your_mother" << endl;
+    cout << "3. Friends" << endl;
+    cout << "4. Rick_y_Morty" << endl;
+    cout << "5. Arrow" << endl;
+    cout << "6. Breaking_Bad" << endl;
+    cout << "7. Gravity_Falls" << endl;
+    cout << "8. Konosuba" << endl;
+    cout << "9. Neon_Genesis_Evangelion" << endl;
+    cout << "10. Drake_y_Josh" << endl;
+    cout << "11. Black_Clover" << endl;
+    cout << endl;
+    cout << "Escribe la serie: ";
     cin >> conserie;
-    cout << "'¿Qué calificación quieres que despleguemos? Calificación: ";
+    cout << endl;
+    cout << "'¿Que calificacion (1-5)quieres que despleguemos? Calificacion: ";
     cin >> califEpisodio;
+    while ((califEpisodio <= 0) || (califEpisodio > 5))
+    {
+        cout << endl;
+        cout << "Introduce una calificacion valida, porfavor: ";
+        cin >> califEpisodio;
+    }
 
     for (int i = 0; i < cantSeries; i++)
     {
@@ -98,6 +120,7 @@ void peliculasConCalif(Videos *listaVideos[], int cantVideos)
     Pelicula *unaPeli;
     cout << "¿Que calificacion (1-5) quieres para desplegar las peliculas? Calificacion: ";
     cin >> calificacionP;
+    cout << endl;
     while ((calificacionP <= 0) || (calificacionP > 5))
     {
         cout << endl;
@@ -128,6 +151,7 @@ void despliegaSeries(Serie *arrSeries[], int cantSeries)
         cout << "iD:" << arrSeries[s]->getId() << ", "
              << "Serie: " << arrSeries[s]->getNombreSerie() << endl;
         cout << endl;
+        sleep(1);
     }
 }
 
@@ -168,7 +192,8 @@ int main()
     int calificacion_, calificacionEp_;
     int temporada_, cantEpisodios_;
     char tipoVideo;
-    cout << "Iniciando carga" << endl;
+    cout << endl;
+    cout << "¡Bienvenido! ¿Qué deseas consultar hoy?" << endl;
 
     ifstream datosSeries;
     datosSeries.open("datosSeries.txt");
@@ -210,16 +235,16 @@ int main()
     do
     {
         cout << endl;
-        cout << "a) Cargar archivos" << endl;
-        cout << "b) Mostrar todos los videos" << endl;
-        cout << "c) Mostrar Videos con Cierta Calificación " << endl;
-        cout << "d) Mostrar Videos con Cierto Género" << endl;
-        cout << "e) Mostrar Episodios de Serie con Calificación Determinada " << endl;
-        cout << "f) Mostrar peliculas con cierta calificacion " << endl;
-        cout << "g) Despliega todas las series" << endl;
-        cout << "h) Despliega Series y con Episodios" << endl;
+        cout << "a) Cargar Archivos" << endl;
+        cout << "b) Mostrar Todos los Videos" << endl;
+        cout << "c) Mostrar Videos con Cierta Calificacion " << endl;
+        cout << "d) Mostrar Videos con Cierto Genero" << endl;
+        cout << "e) Mostrar Episodios de Serie con Calificacion Determinada " << endl;
+        cout << "f) Mostrar Peliculas con Calificacion Determinada" << endl;
+        cout << "g) Despliega Todas las Series" << endl;
+        cout << "h) Despliega Series con Episodios" << endl;
         cout << "i) Calificar un Video" << endl;
-        cout << "j) Terminar Sesión " << endl;
+        cout << "j) Terminar Sesion " << endl;
         cout << endl;
         cout << "Opcion -> ";
         cin >> opcionMenu;

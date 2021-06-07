@@ -79,7 +79,7 @@ void Serie::imprimir(int calificacion)
 }
 
 void Serie::mostrar(){
-    cout << "Serie:" << nombreSerie << endl;
+    cout << "Serie: " << nombreSerie << endl;
     cout << endl;
     for (int i = 0; i < cantEpisodios; i++){
         cout << "- " << arrepisodio[i]->getNombre() << endl;

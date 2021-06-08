@@ -10,6 +10,71 @@
 #include "Pelicula.h"
 #include "Episodio.h"
 
+//Aqui se cargan las series
+void cargarSeries(Serie *arrSeries[], int &cantSeries)
+{
+    //Videos en General
+    //Mas para episodios
+    string nombreSerie_, iDD_;
+    //Casting para serie
+    //MISC
+    cantSeries = 0;
+    cout << "Iniciando carga de Series" << endl;
+    ifstream datosSeries;
+    datosSeries.open("datosSeries.txt");
+    while (datosSeries >> iDD_ >> nombreSerie_)
+    {
+        arrSeries[cantSeries] = new Serie(iDD_, nombreSerie_);
+        cantSeries += 1;
+    }
+    datosSeries.close();
+}
+
+//Aqui se cargan los videos
+void cargarVideos(Videos *listaVideos[], Serie *arrSeries[], int &cantVideos_, int &cantSeries)
+{
+    //Videos en General
+    string iD_, nombre_, duracion_, genero_, titulo_;
+    //Mas para episodios
+    string nombreSerie_, nombreS_, iDD_;
+    //Casting para serie
+    Episodio *unEpi;
+    //MISC
+    int calificacion_, calificacionEp_;
+    int temporada_, cantEpisodios_;
+    char tipoVideo;
+    cout << "Iniciando carga de Videos" << endl;
+    cantVideos_ = 0;
+    ifstream datosVideos("datostest.txt");
+    while (datosVideos >> tipoVideo)
+    {
+        if (tipoVideo == 'e')
+        {
+            datosVideos >> iD_ >> nombre_ >> genero_ >> duracion_ >> calificacion_ >> titulo_ >> temporada_ >> calificacionEp_;
+            //¿Como definiria el array de apuntadores de episodio aqui de la clase serie
+            unEpi = new Episodio(iD_, nombre_, genero_, duracion_, calificacion_, titulo_, temporada_, calificacionEp_);
+            listaVideos[cantVideos_] = unEpi;
+            cantVideos_ += 1;
+            for (int i = 0; i < cantSeries; i++)
+            {
+                if (arrSeries[i]->getNombreSerie() == titulo_)
+                {
+                    arrSeries[i]->agregaEpisodio(unEpi);
+                }
+            }
+        }
+        else if (tipoVideo == 'p')
+        {
+            datosVideos >> iD_ >> nombre_ >> genero_ >> duracion_ >> calificacion_;
+            listaVideos[cantVideos_] = new Pelicula(iD_, nombre_, genero_, duracion_, calificacion_);
+            cantVideos_ += 1;
+        }
+    }
+
+    datosVideos.close();
+}
+
+//Esta funcion muestra todos los videos
 void mostrarLosVideos(Videos *listaVideos[], int cantVideos_)
 {
     cout << "Los videos disponibles son:" << endl;
@@ -21,10 +86,12 @@ void mostrarLosVideos(Videos *listaVideos[], int cantVideos_)
     }
 }
 
+//Esta funcion muestra los videos con cierta calificacion
 void mostrarVideosConCalif(Videos *listaVideos[], int cantVideos_)
 {
 
     int calificacionB;
+    cout << "Nota: Si no hay videos con esa calificación, no se desplegará ninguno." << endl;
     cout << "¿Que calificacion (1-5) quieres que busquemos?" << endl;
     cout << "Calificacion: ";
     cin >> calificacionB;
@@ -48,6 +115,7 @@ void mostrarVideosConCalif(Videos *listaVideos[], int cantVideos_)
     }
 }
 
+//mostrar videos con cierto genero
 void mostrarVideosConGenero(Videos *listaVideos[], int cantVideos_)
 {
     string opgenero = "";
@@ -74,6 +142,7 @@ void mostrarVideosConGenero(Videos *listaVideos[], int cantVideos_)
     }
 }
 
+//mostrar episodios de series a partir de una calificacion determinada
 void mostrarEpisodiosDeSeries(Videos *listaVideos[], Serie *arrSeries[], int cantVideos_, int cantSeries)
 {
     string conserie = "";
@@ -96,7 +165,9 @@ void mostrarEpisodiosDeSeries(Videos *listaVideos[], Serie *arrSeries[], int can
     cout << "Escribe la serie: ";
     cin >> conserie;
     cout << endl;
+    cout << "Nota: Si no hay capitulos con calificación, no se desplegará ninguno." << endl;
     cout << "'¿Que calificacion (1-5)quieres que despleguemos? Calificacion: ";
+    cout << endl;
     cin >> califEpisodio;
     while ((califEpisodio <= 0) || (califEpisodio > 5))
     {
@@ -104,7 +175,6 @@ void mostrarEpisodiosDeSeries(Videos *listaVideos[], Serie *arrSeries[], int can
         cout << "Introduce una calificacion valida, porfavor: ";
         cin >> califEpisodio;
     }
-
     for (int i = 0; i < cantSeries; i++)
     {
         if (arrSeries[i]->getNombreSerie() == conserie)
@@ -114,6 +184,7 @@ void mostrarEpisodiosDeSeries(Videos *listaVideos[], Serie *arrSeries[], int can
     } //COMO REGRESAR AL MAIN SI NO HAY EPISODIOS
 }
 
+//mostrar peliculas con calificación determinada
 void peliculasConCalif(Videos *listaVideos[], int cantVideos)
 {
     int calificacionP = 0;
@@ -143,6 +214,7 @@ void peliculasConCalif(Videos *listaVideos[], int cantVideos)
     }
 }
 
+//despliega todas las series
 void despliegaSeries(Serie *arrSeries[], int cantSeries)
 {
     cout << endl;
@@ -155,6 +227,7 @@ void despliegaSeries(Serie *arrSeries[], int cantSeries)
     }
 }
 
+//mostrar todas las series con sus episodios
 void seriesYepisodios(Serie *arrSeries[], int cantSeries)
 {
     for (int s = 0; s < cantSeries; s++)
@@ -163,6 +236,39 @@ void seriesYepisodios(Serie *arrSeries[], int cantSeries)
         arrSeries[s]->mostrar();
         sleep(1);
         cout << endl;
+    }
+}
+
+//Califica un video - cambia la calificación
+void calificaVideos(Videos *listaVideos[], int cantVideos_)
+{
+    string opGeneral = "";
+    double preCal, posCal;
+    int calificacionGnrl = 0;
+    cout << "¡Califica tus episodios/peliculas favoritas!" << endl;
+    cout << "¿Cual episodio/pelicula quieres calificar? Tu opcion: ";
+    cin >> opGeneral;
+    cout << "¿Cual es la calificacion que le quieres dar? Calificacion: ";
+    cin >> calificacionGnrl;
+    while ((calificacionGnrl < 0) || (calificacionGnrl > 5))
+    {
+        cout << endl;
+        cout << "Introduce una calificacion valida, porfavor: ";
+        cin >> calificacionGnrl;
+    }
+    for (int y = 0; y < cantVideos_; y++)
+    {
+        if (listaVideos[y]->getNombre() == opGeneral)
+        {
+            preCal = listaVideos[y]->getCalificacion();
+            listaVideos[y]->setCalificacion(calificacionGnrl);
+            cout << "La calificacion anterior de " << opGeneral << " era: " << preCal << endl;
+            sleep(1);
+            cout << "La nueva calificacion de " << opGeneral << " es: " << listaVideos[y]->getCalificacion() << endl;
+            sleep(1);
+            cout << "Gracias por compartirnos tu opinión :)" << endl;
+            sleep(1);
+        }
     }
 }
 
@@ -181,56 +287,6 @@ int main()
     int cantSeries;
     //Misc
     char opcionMenu;
-
-    //Videos en General
-    string iD_, nombre_, duracion_, genero_, titulo_;
-    //Mas para episodios
-    string nombreSerie_, nombreS_, iDD_;
-    //Casting para serie
-    Episodio *unEpi;
-    //MISC
-    int calificacion_, calificacionEp_;
-    int temporada_, cantEpisodios_;
-    char tipoVideo;
-    cout << endl;
-    cout << "¡Bienvenido! ¿Qué deseas consultar hoy?" << endl;
-
-    ifstream datosSeries;
-    datosSeries.open("datosSeries.txt");
-    while (datosSeries >> iDD_ >> nombreSerie_)
-    {
-        arrSeries[cantSeries] = new Serie(iDD_, nombreSerie_);
-        cantSeries += 1;
-    }
-    datosSeries.close();
-
-    ifstream datosVideos("datostest.txt");
-    while (datosVideos >> tipoVideo)
-    {
-        if (tipoVideo == 'e')
-        {
-            datosVideos >> iD_ >> nombre_ >> genero_ >> duracion_ >> calificacion_ >> titulo_ >> temporada_ >> calificacionEp_;
-            //¿Como definiria el array de apuntadores de episodio aqui de la clase serie
-            unEpi = new Episodio(iD_, nombre_, genero_, duracion_, calificacion_, titulo_, temporada_, calificacionEp_);
-            listaVideos[cantVideos_] = unEpi;
-            cantVideos_ += 1;
-            for (int i = 0; i < cantSeries; i++)
-            {
-                if (arrSeries[i]->getNombreSerie() == titulo_)
-                {
-                    arrSeries[i]->agregaEpisodio(unEpi);
-                }
-            }
-        }
-        else if (tipoVideo == 'p')
-        {
-            datosVideos >> iD_ >> nombre_ >> genero_ >> duracion_ >> calificacion_;
-            listaVideos[cantVideos_] = new Pelicula(iD_, nombre_, genero_, duracion_, calificacion_);
-            cantVideos_ += 1;
-        }
-    }
-
-    datosVideos.close();
 
     do
     {
@@ -251,9 +307,11 @@ int main()
         cout << endl;
         switch (opcionMenu)
         {
-        case 'a':
+        case 'a': //Mensaje de que ya se cargaron los archivos, recordando que es precarga
         {
-            cout << "Los archivos se han cargado correctamente" << endl;
+            cargarSeries(arrSeries, cantSeries);
+            cargarVideos(listaVideos, arrSeries, cantVideos_, cantSeries);
+            cout << "Carga completa" << endl;
             break;
         }
         case 'b':
@@ -296,7 +354,8 @@ int main()
         }
         case 'i':
         {
-            //Promedio
+            calificaVideos(listaVideos, cantVideos_);
+            break;
         }
         case 'j':
         {
